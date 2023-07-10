@@ -7,19 +7,17 @@ import { UserService } from '../_service/user.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
-
-
-  constructor( private userService: UserService,
+export class LoginComponent implements OnInit {
+  constructor(
+    private userService: UserService,
     private userAuthService: UserAuthService,
-    private router: Router){
+    private router: Router
+  ) {}
 
-  }
-  ngOnInit(){
+  ngOnInit(): void {}
 
-  }
   login(loginForm: NgForm) {
     this.userService.login(loginForm.value).subscribe(
       (response: any) => {

@@ -1,5 +1,5 @@
 {
-  "name": "demo-ui",
+  "name": "order-mgt-ui",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -10,12 +10,16 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^16.1.0",
+    "@angular/animations": "^16.1.4",
+    "@angular/cdk": "^16.1.4",
     "@angular/common": "^16.1.0",
     "@angular/compiler": "^16.1.0",
     "@angular/core": "^16.1.0",
     "@angular/forms": "^16.1.0",
+    "@angular/material": "^16.1.4",
     "@angular/platform-browser": "^16.1.0",
+    "@add":"^2.0.6",
+    "ng":"0.0.0",
     "@angular/platform-browser-dynamic": "^16.1.0",
     "@angular/router": "^16.1.0",
     "bootstrap": "^5.3.0",

@@ -35,7 +35,7 @@ export class UserService {
 
   public roleMatch(allowedRoles:any): boolean {
     let isMatch = false;
-    let ans;
+   
     const userRoles: any = this.userAuthService.getRoles();
 
     if (userRoles != null && userRoles) {
@@ -44,12 +44,11 @@ export class UserService {
           if (userRoles[i].roleName === allowedRoles[j]) {
             isMatch = true;
             return isMatch;
-          } else {
-            return isMatch;
-          }
+          } 
         }
       }
     }
     return isMatch;
+   
   }
 }
