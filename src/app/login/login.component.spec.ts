@@ -6,6 +6,7 @@ describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
 
+<<<<<<< HEAD
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ LoginComponent ]
@@ -14,6 +15,12 @@ describe('LoginComponent', () => {
   });
 
   beforeEach(() => {
+=======
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      declarations: [LoginComponent]
+    });
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

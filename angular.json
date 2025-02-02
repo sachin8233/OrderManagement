@@ -3,7 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "jwt-youtube-ui": {
+=======
+    "demo_UI": {
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,18 +17,31 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/jwt-youtube-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+=======
+            "outputPath": "dist/demo-ui",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "tsconfig.app.json",
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+=======
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
               "src/styles.css",
               "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
@@ -35,6 +52,7 @@
           },
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -74,30 +92,84 @@
               "browserTarget": "jwt-youtube-ui:build:production"
             }
           }
+=======
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "demo_UI:build:production"
+            },
+            "development": {
+              "browserTarget": "demo_UI:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "jwt-youtube-ui:build"
+=======
+            "browserTarget": "demo_UI:build"
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
+<<<<<<< HEAD
             "main": "src/test.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
+=======
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "tsconfig.spec.json",
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+<<<<<<< HEAD
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+=======
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
               "src/styles.css"
             ],
             "scripts": []
           }
+<<<<<<< HEAD
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -130,5 +202,10 @@
   "defaultProject": "jwt-youtube-ui",
   "cli": {
     "analytics": false
+=======
+        }
+      }
+    }
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
   }
 }

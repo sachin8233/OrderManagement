@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { AddNewProductComponent } from "./add-new-product/add-new-product.component";
@@ -92,10 +93,34 @@ const routes: Routes = [
     path: "register",
     component: RegisterComponent
   }
+=======
+import { NgModule } from '@angular/core';
+
+import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { UserComponent } from './user/user.component';
+import { AddNewProductComponent } from './add-new-product/add-new-product.component';
+import { AuthGuard } from './_auth/auth.guard';
+
+const routes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'admin', component: AdminComponent, canActivate:[AuthGuard] ,data:{roles:['Admin']} },
+  { path: 'user', component: UserComponent , canActivate:[AuthGuard] ,data:{roles:['User'] }},
+  { path: 'login', component: LoginComponent },
+  { path: 'forbidden', component: ForbiddenComponent },
+  {path:'addNewProduct',component:AddNewProductComponent, canActivate:[AuthGuard] ,data:{roles:['Admin'] }}
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
+<<<<<<< HEAD
 export class AppRoutingModule {}
+=======
+export class AppRoutingModule { }
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a

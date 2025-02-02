@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
@@ -5,6 +6,9 @@ import { map } from 'rxjs/operators';
 import { ImageProcessingService } from '../image-processing.service';
 import { Product } from '../_model/product.model';
 import { ProductService } from '../_services/product.service';
+=======
+import { Component, OnInit } from '@angular/core';
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
 
 @Component({
   selector: 'app-home',
@@ -13,6 +17,7 @@ import { ProductService } from '../_services/product.service';
 })
 export class HomeComponent implements OnInit {
 
+<<<<<<< HEAD
   pageNumber: number = 0;
 
   productDetails = [];
@@ -62,4 +67,11 @@ export class HomeComponent implements OnInit {
   showProductDetails(productId) {
     this.router.navigate(['/productViewDetails', {productId: productId}]);
   }
+=======
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+>>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
 }
