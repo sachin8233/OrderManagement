@@ -4,7 +4,7 @@
             <div class="col-6">
 
                 <form #orderForm="ngForm"
-                      (ngSubmit)="createTransactionAndPlaceOrder(orderForm)">
+                      (ngSubmit)="orderForm.valid && createTransactionAndPlaceOrder(orderForm)" autocompleted="off">
 
                     <mat-form-field appearance="outline"
                                     class="w-100">
@@ -12,7 +12,17 @@
                         <input matInput
                                placeholder="Full name"
                                [(ngModel)]="orderDetails.fullName"
-                               name="fullName">
+                               name="fullName"
+                               required minlength="4"
+                               pattern="[A-Za-z\s]+"
+                              
+                             #fullNameInput="ngModel" >
+                             <mat-error *ngIf="fullNameInput.invalid && (fullNameInput.dirty || fullNameInput.touched)">
+                                <span *ngIf="fullNameInput.errors?.required">FullName is required.</span>
+                                <span *ngIf="fullNameInput.errors?.minlength">FullName must be atleast 4 characters long.</span>
+                              </mat-error>
+                               
+                               
                     </mat-form-field>
 
                     <mat-form-field appearance="outline"
@@ -21,7 +31,15 @@
                         <input matInput
                                placeholder="Full address"
                                [(ngModel)]="orderDetails.fullAddress"
-                               name="fullAddress">
+                               name="fullAddress"
+                               required minlength="8"
+                               pattern="[A-Za-z0-9\s+\-,\.]+"
+                             #fullAddress="ngModel" >
+                             <mat-error *ngIf="fullAddress.invalid && (fullAddress.dirty || fullAddress.touched)">
+                                <span *ngIf="fullAddress.errors?.required">FullAddress is required.</span>
+                                <span *ngIf="fullAddress.errors?.minlength">FullAddress must be at least 8 characters long.</span>
+                              </mat-error>
+                               
                     </mat-form-field>
 
                     <mat-form-field appearance="outline"
@@ -30,7 +48,15 @@
                         <input matInput
                                placeholder="Contact number"
                                [(ngModel)]="orderDetails.contactNumber"
-                               name="contactNumber">
+                               name="contactNumber"
+                               required minlength="10"
+                               pattern="[0-9]{10}"
+                            #contactNumber="ngModel" >
+                            <mat-error *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)">
+                               <span *ngIf="contactNumber.errors?.required">contactNumber is required.</span>
+                               <span *ngIf="contactNumber.errors?.minlength">contactNumber must be 10 digits </span>
+                             </mat-error>
+                               
                     </mat-form-field>
 
                     <mat-form-field appearance="outline"
@@ -39,10 +65,20 @@
                         <input matInput
                                placeholder="Alternate contact number"
                                [(ngModel)]="orderDetails.alternateContactNumber"
-                               name="alternateContactNumber">
+                               name="alternateContactNumber"
+                               required minlength="10"
+                               pattern="[0-9]{10}"
+                            #alternateContactNumber="ngModel" >
+                            <mat-error *ngIf="alternateContactNumber.invalid && (alternateContactNumber.dirty || alternateContactNumber.touched)">
+                               <span *ngIf="alternateContactNumber.errors?.required">Alternate contact number is required.</span>
+                               <span *ngIf="alternateContactNumber.errors?.minlength">Alternate contact number must be  10 digits </span>
+                             </mat-error>
+                               
+                               
+                               
                     </mat-form-field>
 
-                    <div align="right">
+                    <div class="align">
                         <button type="submit" mat-stroked-button color="primary">Place Order</button>
                     </div>
                 </form>

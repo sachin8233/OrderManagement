@@ -32,17 +32,39 @@ export class BuyProductComponent implements OnInit {
     private injector: Injector) { }
 
   ngOnInit(): void {
-    this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
-    this.isSingleProductCheckout = this.activatedRoute.snapshot.paramMap.get("isSingleProductCheckout");
-    
-    this.productDetails.forEach(
-      x => this.orderDetails.orderProductQuantityList.push(
-        {productId: x.productId, quantity: 1}
-      )
-    );
 
-    console.log(this.productDetails)
-    console.log(this.orderDetails);
+    // console.log(this.productService.OrderDetail);
+
+    if(this.productService.OrderDetail==null){
+      this.productDetails = this.activatedRoute.snapshot.data['productDetails'];
+      this.isSingleProductCheckout = this.activatedRoute.snapshot.paramMap.get("isSingleProductCheckout");
+
+    }
+    else{
+
+    //   this.orderDetails=this.productService.OrderDetail;
+
+    //  this.productService.OrderDetail=null;
+    this.orderDetails.fullName=this.productService.OrderDetail.orderFullName;
+    this.orderDetails. fullAddress=this.productService.OrderDetail.orderFullOrder;
+    this.orderDetails.contactNumber=this.productService.OrderDetail.orderContactNumber;
+    this.orderDetails.alternateContactNumber=this.productService.OrderDetail.orderAlternateContactNumber;
+    this.isSingleProductCheckout = this.activatedRoute.snapshot.paramMap.get("isSingleProductCheckout");
+    console.log("success")
+
+    this.productDetails.push(this.productService.OrderDetail.product);
+
+    this.productService.OrderDetail=null;
+
+  }
+  this.productDetails.forEach(
+    x => this.orderDetails.orderProductQuantityList.push(
+      {productId: x.productId, quantity: 1}
+    )
+  );
+   
+    // console.log(this.productDetails)
+    // console.log(this.orderDetails);
   }
 
   public placeOrder(orderForm: NgForm) {
@@ -120,8 +142,8 @@ export class BuyProductComponent implements OnInit {
       key: response.key,
       amount: response.amount,
       currency: response.currency,
-      name: 'Learn programming yourself',
-      description: 'Payment of online shopping',
+      name: 'Payment Option',
+      description: 'Payment of Order',
       image: 'https://cdn.pixabay.com/photo/2023/01/22/13/46/swans-7736415_640.jpg',
       handler: (response: any) => {
         if(response!= null && response.razorpay_payment_id != null) {
@@ -132,9 +154,9 @@ export class BuyProductComponent implements OnInit {
        
       },
       prefill : {
-        name:'LPY',
-        email: 'LPY@GMAIL.COM',
-        contact: '90909090'
+        name:'sachin',
+        email: 'SACHIN@GMAIL.COM',
+        contact: '8051798233'
       },
       notes: {
         address: 'Online Shopping'

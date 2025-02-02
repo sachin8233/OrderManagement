@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MyOrderDetails } from '../_model/order.model';
 import { ProductService } from '../_services/product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-my-orders',
@@ -9,11 +10,12 @@ import { ProductService } from '../_services/product.service';
 })
 export class MyOrdersComponent implements OnInit {
 
-  displayedColumns = ["Name", "Address", "Contact No.", "Amount", "Status"];
+  displayedColumns = ["Name", "Address", "Contact No.", "Amount", "Status","Action"];
 
   myOrderDetails: MyOrderDetails[] = [];
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getOrderDetails();
@@ -29,5 +31,17 @@ export class MyOrdersComponent implements OnInit {
       }
     );
   }
+
+  ReOrder(orderId:number) {
+
+    this.productService.getOrderDetails(orderId);
+    
+    // this.router.navigate(['/buyProduct', {
+    //   isSingleProductCheckout: false, id: 0
+    // }]);
+    
+
+
+   }
 
 }

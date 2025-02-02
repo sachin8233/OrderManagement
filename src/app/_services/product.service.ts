@@ -4,13 +4,16 @@ import { Observable } from 'rxjs';
 import { OrderDetails } from '../_model/order-details.model';
 import { MyOrderDetails } from '../_model/order.model';
 import { Product } from '../_model/product.model';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  OrderDetail: any;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient,
+    private router:Router) { }
 
   public createTransaction(amount) {
     return this.httpClient.get("http://localhost:9090/createTransaction/"+amount);
@@ -36,8 +39,8 @@ export class ProductService {
     return this.httpClient.post<Product>("http://localhost:9090/addNewProduct", product);
   }
 
-  public getAllProducts(pageNumber, searchKeyword: string = "") {
-    return this.httpClient.get<Product[]>("http://localhost:9090/getAllProducts?pageNumber="+pageNumber+"&searchKey="+searchKeyword);
+  public getAllProducts(pageNumber: number, searchKey: string) {
+    return this.httpClient.get<Product[]>("http://localhost:9090/getAllProducts?pageNumber=");
   }
 
   public getProductDetailsById(productId) {
@@ -62,5 +65,18 @@ export class ProductService {
 
   public getCartDetails() {
     return this.httpClient.get("http://localhost:9090/getCartDetails");
+  }
+
+  public getOrderDetails(orderId:number){
+    this.httpClient.post("http://localhost:9090/getOrderDetails",orderId).subscribe(
+      data=>{
+        this.OrderDetail=data;
+      //  console.log(this.OrderDetail);
+        this.router.navigate(['/buyProduct', {
+          isSingleProductCheckout: false, id: 0
+        }]);
+      }
+      
+    );
   }
 }
