@@ -6,7 +6,6 @@ describe('AdminComponent', () => {
   let component: AdminComponent;
   let fixture: ComponentFixture<AdminComponent>;
 
-<<<<<<< HEAD
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AdminComponent ]
@@ -15,12 +14,6 @@ describe('AdminComponent', () => {
   });
 
   beforeEach(() => {
-=======
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      declarations: [AdminComponent]
-    });
->>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
     fixture = TestBed.createComponent(AdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

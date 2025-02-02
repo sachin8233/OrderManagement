@@ -1,13 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-<<<<<<< HEAD
 import { UserAuthService } from '../_services/user-auth.service';
 import { UserService } from '../_services/user.service';
-=======
-import { UserAuthService } from '../_service/user-auth.service';
-import { UserService } from '../_service/user.service';
->>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
 
 @Component({
   selector: 'app-login',
@@ -41,11 +36,8 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-<<<<<<< HEAD
 
   registerUser() {
     this.router.navigate(['/register']);
   }
-=======
->>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
 }

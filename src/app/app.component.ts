@@ -6,11 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-<<<<<<< HEAD
-  title = 'jwt-youtube-ui';
-=======
-  title = 'demo_UI';
- 
-  disabled = true;
->>>>>>> f8d9c49ac489eac1ab8655924375229386ecee0a
+  title = 'order-Management-frontend';
 }
